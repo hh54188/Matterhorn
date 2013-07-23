@@ -25,9 +25,9 @@ define(function (require, exports, module) {
 
 			target[key] = Parent[key];
 		}
+
+		return target;
 	}
 
-	exports.B = function () {
-		console.info("this is module B");
-	}
+	exports.extend = extend;
 })
