@@ -1,62 +1,38 @@
 define(['src/helper/isArray'], function (isArray) {
-
     describe("isArray", function() {
         var variable
-        it("Number返回false", function() {
+
+        var falseMsg = " return false if a ";
+        var truemsg = " return true a ";
+        var end = " datatype varieble pass in";
+        
+        it(falseMsg + " Number " + end, function() {
             variable = 10;
             expect(isArray(variable)).toBeFalsy();
         });
 
         
-        it("String返回false", function() {
+        it(falseMsg + " String " + end, function() {
             variable = "string";
             expect(isArray(variable)).toBeFalsy();
-        });        
+        });
 
         
-        it("Null返回false", function() {
+        it(falseMsg + " null " + end, function() {
             variable = null;
             expect(isArray(variable)).toBeFalsy();
         });        
 
         
-        it("Null返回false", function() {
+        it(falseMsg + " undefined " + end, function() {
             variable = undefined;
             expect(isArray(variable)).toBeFalsy();
         });  
         
         
-        it("Array返回true", function() {
+        it(truemsg + " array " + end, function() {
             variable = [1, 2, 3];
             expect(isArray(variable)).toBeTruthy();
         });
-    })
-
-    // describe("isArray", function() {
-    //     var variable = "string";
-    //     it("String返回false", function() {
-    //         expect(isArray(variable)).toEqual(false);
-    //     });
-    // })
-
-    // describe("isArray", function() {
-    //     var variable = null;
-    //     it("Null返回false", function() {
-    //         expect(isArray(variable)).toEqual(false);
-    //     });
-    // })
-
-    // describe("isArray", function() {
-    //     var variable = undefined;
-    //     it("Null返回false", function() {
-    //         expect(isArray(variable)).toEqual(false);
-    //     });
-    // })    
-
-    // describe("isArray", function() {
-    //     var variable = [1, 2, 3];
-    //     it("Null返回false", function() {
-    //         expect(isArray(variable)).toEqual(true);
-    //     });
-    // })    
+    })  
 })

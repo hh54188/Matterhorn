@@ -4,7 +4,10 @@ requirejs.config({
     paths: {
     	'jquery': 'lib/jquery-1.9.1.min',
     	'jasmine': 'lib/jasmine-1.3.1/jasmine',
-    	'jasmine-html': 'lib/jasmine-1.3.1/jasmine-html'
+    	'jasmine-html': 'lib/jasmine-1.3.1/jasmine-html',
+
+        'helper': 'src/helper',
+        'object': 'src/object'
     },
     shim: {
         jasmine: {
@@ -32,8 +35,13 @@ require(["jquery", "jasmine-html"], function ($, jasmine){
     };
 
     var specs = [];
+    // helper:
+    // specs.push('test/spec/isObjectSpec');
+    // specs.push('test/spec/isArraySpec');
 
-    specs.push('test/spec/isArraySpec');
+    // object:
+    specs.push('test/spec/extendSpec');
+
 
     $(function () {
         require(specs, function (spec) {

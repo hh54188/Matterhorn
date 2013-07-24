@@ -18,10 +18,10 @@ define(function (require, exports, module) {
             return false;
         }
 
-        // 先做判断
-        var F = function () {}
-        F.prototype = Parent.prototype;
-        target.prototype = new F();
+        // 构造函数之间的继承，暂时不需要
+        // var F = function () {}
+        // F.prototype = Parent.prototype;
+        // target.prototype = new F();
 
         // deepCopy
         for (var key in Parent) {
