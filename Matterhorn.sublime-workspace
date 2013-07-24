@@ -1,0 +1,1044 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"thu",
+				"thumbContainer"
+			],
+			[
+				"is",
+				"isheadmap"
+			],
+			[
+				"ran",
+				"randomKey"
+			],
+			[
+				"ra",
+				"randomKey"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"hide",
+				"_hideForPad"
+			],
+			[
+				"to",
+				"_togglePanel"
+			],
+			[
+				"dic",
+				"dictObj"
+			],
+			[
+				"gen",
+				"generateDict"
+			],
+			[
+				"ke",
+				"KEY_WORDS"
+			],
+			[
+				"re",
+				"reFetch"
+			],
+			[
+				"ti",
+				"title"
+			],
+			[
+				"allow",
+				"allowClick"
+			],
+			[
+				"time",
+				"time_span"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/main.js",
+			"settings":
+			{
+				"buffer_size": 295,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/object/extend.js",
+			"settings":
+			{
+				"buffer_size": 1172,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/JSLint/JSLint.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Disable Package"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"pacl",
+				"Package Control: List Packages"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"markdo",
+				"Markdown Preview: preview in Browser"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"mar",
+				"Markdown Preview: preview in Browser"
+			],
+			[
+				"markd",
+				"Markdown Preview: preview in Browser"
+			],
+			[
+				"mark",
+				"Markdown Preview: preview in Browser"
+			],
+			[
+				"pakc",
+				"Package Control: Install Package"
+			],
+			[
+				"pak",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 464.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/QIYI/Desktop/Matterhorn/src/helper/isObject.js",
+		"/C/Users/QIYI/Desktop/Matterhorn/src/helper/isEmptyObject.js",
+		"/C/Users/QIYI/Desktop/Matterhorn/src/helper/isArray.js",
+		"/C/Users/QIYI/Desktop/Matterhorn/src/object/extend.js",
+		"/C/Users/QIYI/Desktop/Matterhorn/src/main.js",
+		"/C/Users/QIYI/Desktop/Matterhorn/.gitignore",
+		"/C/Users/QIYI/Desktop/scrapy_douban/flask/run.py",
+		"/C/Users/QIYI/Desktop/scrapy_douban/flask/test.py",
+		"/C/Users/QIYI/AppData/Roaming/Sublime Text 2/Packages/SplitScreen/Default.sublime-keymap",
+		"/D/Program Files/Sublime Text 2.0.2/Data/Packages/User/SublimeLinter.sublime-settings",
+		"/D/Program Files/Sublime Text 2.0.2/Data/Packages/sublimelint/lint/highlight.py",
+		"/D/Program Files/Sublime Text 2.0.2/Data/Packages/sublimelint/Default.sublime-commands",
+		"/D/Program Files/Sublime Text 2.0.2/Data/Packages/User/Package Control.sublime-settings",
+		"/D/Program Files/Sublime Text 2.0.2/Data/Packages/TrailingSpaces/trailing_spaces.sublime-settings",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/units/mediumfocuspicture.js",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/jobs/pc/cartoonIndex.js",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/units/slideChildrenIndex.js",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/action/slideWidget.js",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/view/slideWidgetView.js",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/jobs/pc/childrenIndex.js",
+		"/E/Work/qiyi/__branch__/20130607175948_sport_madebyserver/qiyiV2/compile.config",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/view/floatPlayerView.js",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/model/customListModel.js",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/jobs/pc/customListPlay.js",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/units/customListPlayHeadPic.js",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/units/flashAndPageVideoListSync.js",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/units/customListPlayHeadBread.js",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/action/customList.js",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/compile.config",
+		"/D/Program Files/Sublime Text 2.0.2/Data/Packages/JSLint/jslint.js",
+		"/D/Program Files/Sublime Text 2.0.2/Data/Packages/JSLint/Default.sublime-keymap",
+		"/D/Program Files/Sublime Text 2.0.2/Data/Packages/JSLint/README.md",
+		"/D/Program Files/Sublime Text 2.0.2/Data/Packages/JSHint/README.md",
+		"/D/Program Files/Sublime Text 2.0.2/Data/Packages/JSHint/JSHint.py",
+		"/D/Program Files/Sublime Text 2.0.2/Data/Packages/JSHint/Default (Windows).sublime-keymap",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/units/largefocuspicture.js",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/action/floatplayer.js",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/units/floatplayer.js",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/jobs/pc/movieHome.js",
+		"/E/Work/qiyi/__branch__/焦点图改版/qiyiV2/jobs/pc/tvIndex.js",
+		"/C/Users/QIYI/Desktop/scrapy_douban/flask/.gitignore",
+		"/C/Users/QIYI/Desktop/scrapy_douban/flask/requirements.txt",
+		"/C/Users/QIYI/Desktop/scrapy_douban/flask/static/package.json",
+		"/C/Users/QIYI/Desktop/scrapy_douban/flask/static/src/bower.json",
+		"/C/Users/QIYI/Desktop/scrapy_douban/.gitignore",
+		"/C/Users/QIYI/Desktop/scrapy_douban/flask/static/js/jquery.js",
+		"/E/Work/qiyi/play_new1.html",
+		"/C/Users/QIYI/Desktop/demo/Gruntfile.js",
+		"/C/Users/QIYI/Desktop/demo/package.json",
+		"/E/Work/qiyi/__branch__/newnewPlayPage/qiyiV2/units/Children.js",
+		"/C/Users/QIYI/Desktop/homework/index.html",
+		"/D/Program Files/Sublime Text 2.0.2/Data/Packages/2pdf/Default (Windows).sublime-keymap",
+		"/E/Work/qiyi/play_new.html",
+		"/E/Work/qiyi/__branch__/newnewPlayPage/qiyiV2/jobs/pc/shortPlay.js",
+		"/E/Work/qiyi/__branch__/newnewPlayPage/qiyiV2/units/newPlayBase.js",
+		"/E/Work/qiyi/__branch__/newnewPlayPage/qiyiV2/action/newSignWheel.js",
+		"/E/Work/qiyi/__branch__/newnewPlayPage/qiyiV2/view/mySignInWheelView.js",
+		"/E/Work/qiyi/__branch__/newnewPlayPage/qiyiV2/view/newSignWheelView.js",
+		"/E/Work/qiyi/tese_s.html",
+		"/E/Work/qiyi/__branch__/特色频道首页响应式/html/tese_new_index(small)_js.html",
+		"/E/Work/qiyi/tesel.html",
+		"/E/Work/qiyi/teses.html",
+		"/E/Work/qiyi/play_new_dianshiju20130410.html",
+		"/E/Work/qiyi/tese_l.html",
+		"/E/Work/qiyi/__branch__/特色频道首页响应式/qiyiV2/jobs/pc/lifeIndex.js",
+		"/E/Work/qiyi/__branch__/特色频道首页响应式/qiyiV2/units/adjustBodyClass.js",
+		"/E/Work/qiyi/__branch__/特色频道首页响应式/html/tese_new_index(largest).html",
+		"/E/Work/qiyi/__branch__/特色频道首页响应式/html/tese_new_index(small).html",
+		"/C/Users/QIYI/AppData/Local/Google/Chrome/User Data/Default/Extensions/jmchmkecamhbiokiopfpnfgbidieafmd/0.6_0/README.md",
+		"/C/Users/QIYI/AppData/Local/Google/Chrome/User Data/Default/Extensions/jmchmkecamhbiokiopfpnfgbidieafmd/0.6_0/markdownify.js",
+		"/C/Users/QIYI/AppData/Local/Google/Chrome/User Data/Default/Extensions/jmchmkecamhbiokiopfpnfgbidieafmd/0.6_0/showdown.js",
+		"/E/Work/qiyi/__branch__/少儿频道/qiyi/units/qiyuTvAlbum.js",
+		"/E/Work/qiyi/__trunk__/qiyi/common/view/qiyuTvAlbumView.js",
+		"/E/Work/qiyi/__trunk__/qiyi/common/view/qiyujiaoyuAlbumView.js",
+		"/E/Work/qiyi/__trunk__/qiyi/common/view/qiyuDocumentaryAlbumView.js",
+		"/E/Work/qiyi/__trunk__/qiyi/common/view/qiyuYuleListView.js",
+		"/E/Work/qiyi/__trunk__/qiyi/common/view/qiyuView.js",
+		"/E/Work/qiyi/__trunk__/qiyi/common/view/qiyuVideoclipView.js",
+		"/E/Work/qiyi/__trunk__/qiyi/common/units/qiyu_changeVideo.js",
+		"/E/Work/qiyi/__trunk__/qiyi/common/units/qiyu.js",
+		"/E/Work/qiyi/__trunk__/qiyi/jobs/ctalbum1.js",
+		"/E/Work/qiyi/__trunk__/qiyi/common/view/qitanSpecialStillView.js",
+		"/E/Work/qiyi/__trunk__/qiyi/units/uTvAlbumStill.js",
+		"/E/Work/qiyi/__trunk__/qiyi/common/view/qitanTvAlbumStillView.js",
+		"/E/Work/qiyi/__trunk__/qiyi/units/videocliplist.js",
+		"/E/Work/qiyi/__trunk__/qiyi/units/uTvAlbumHotTab.js",
+		"/C/Users/QIYI/Desktop/scrapy_douban/flask/info.py",
+		"/E/Work/qiyi/staging/qiyiV2/units/slideSport.js",
+		"/E/Work/qiyi/__branch__/newnewPlayPage/qiyiV2/kit/qrCoder.js",
+		"/C/Users/QIYI/Desktop/scrapy_douban/flask/templates/index.html"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"preImgSrc",
+			"!=",
+			"==",
+			"===",
+			"childrenIndex",
+			"click",
+			"thumbContainer",
+			"addvideolist",
+			"customevent",
+			"q.custom",
+			"CustomListInfo",
+			"parseInt",
+			"thumbContainer",
+			"addVideoList",
+			"floatPlayerRenderDone",
+			"rightArrow",
+			"\nrightArrow",
+			"            rightArrow.on('click', function(e){\n",
+			"ci",
+			"mul",
+			"slideToright",
+			"slideToLeft",
+			"mouseenter",
+			"click",
+			"thumbList",
+			"data-largefocuspicture-elem=th",
+			"data-largefocuspicture-elem",
+			"debugger",
+			"urllib2",
+			"clear",
+			"clearswf",
+			"remove",
+			"cookie",
+			"cokie",
+			"status",
+			"clearswf",
+			"clear",
+			"login",
+			"swf",
+			"swf_hj8iufdm",
+			"clear",
+			"object",
+			".swf",
+			"clear.swf",
+			"clear",
+			"hide",
+			"show",
+			"toggle",
+			"_showTips",
+			"player/cupid/common",
+			"swf_hj8a492y",
+			"debugger",
+			"login",
+			"random",
+			"start",
+			"returnWheel",
+			"curIsWheel",
+			"view",
+			"ipad",
+			"pad",
+			"为抢弹药冒夜袭伪军",
+			"piclist_title",
+			"focus start",
+			"focus-start",
+			"adv_focus clearfix",
+			"setOutput",
+			"s_main clearfix",
+			"q.load",
+			"qiyutvalbumview",
+			"qiyuview",
+			"album_name",
+			"_trancateName",
+			"album_name",
+			"album_name_trancate",
+			"j-qiyuList",
+			"j-lookingLoading",
+			"j-looking",
+			"的相关剧照",
+			"j-tab-cnt",
+			"qiyuHookup",
+			"breadCrumbs",
+			"moviePlayShare",
+			"subscribe",
+			"flashExpand",
+			"reFetch",
+			"print",
+			"debugger",
+			");\n",
+			"start",
+			"签到",
+			"timestamp"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/main.js",
+					"settings":
+					{
+						"buffer_size": 295,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								41,
+								41
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"asi": false,
+								"bitwise": false,
+								"boss": false,
+								"browser": true,
+								"curly": true,
+								"debug": true,
+								"eqeqeq": false,
+								"eqnull": true,
+								"evil": true,
+								"forin": false,
+								"funcscope": false,
+								"globals":
+								{
+									"Q": true,
+									"Qiyi": true,
+									"alert": true,
+									"console": true,
+									"define": true,
+									"lib": true,
+									"seajs": true
+								},
+								"immed": true,
+								"indent": 4.0,
+								"latedef": true,
+								"laxbreak": true,
+								"loopfunc": true,
+								"maxerr": 50.0,
+								"maxlen": 120.0,
+								"newcap": true,
+								"noarg": true,
+								"node": true,
+								"noempty": false,
+								"nomen": false,
+								"plusplus": false,
+								"scripturl": true,
+								"sub": true,
+								"supernew": false,
+								"swindent": true,
+								"trailing": true,
+								"undef": true,
+								"unused": false
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/object/extend.js",
+					"settings":
+					{
+						"buffer_size": 1172,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								280,
+								280
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"asi": false,
+								"bitwise": false,
+								"boss": false,
+								"browser": true,
+								"curly": true,
+								"debug": true,
+								"eqeqeq": false,
+								"eqnull": true,
+								"evil": true,
+								"forin": false,
+								"funcscope": false,
+								"globals":
+								{
+									"Q": true,
+									"Qiyi": true,
+									"alert": true,
+									"console": true,
+									"define": true,
+									"lib": true,
+									"seajs": true
+								},
+								"immed": true,
+								"indent": 4.0,
+								"latedef": true,
+								"laxbreak": true,
+								"loopfunc": true,
+								"maxerr": 50.0,
+								"maxlen": 120.0,
+								"newcap": true,
+								"noarg": true,
+								"node": true,
+								"noempty": false,
+								"nomen": false,
+								"plusplus": false,
+								"scripturl": true,
+								"sub": true,
+								"supernew": false,
+								"swindent": true,
+								"trailing": true,
+								"undef": true,
+								"unused": false
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.65,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"miu",
+				"units/mediumfocuspicture.js"
+			],
+			[
+				"indexfocus",
+				"units/indexFocus.js"
+			],
+			[
+				"mediumfocuspicture",
+				"units/mediumfocuspicture.js"
+			],
+			[
+				"child",
+				"jobs/pc/childrenIndex.js"
+			],
+			[
+				"slidewidgetview",
+				"view/slideWidgetView.js"
+			],
+			[
+				"slidewidget",
+				"action/slideWidget.js"
+			],
+			[
+				"slidechildrenindex",
+				"units/slideChildrenIndex.js"
+			],
+			[
+				"childrenindex",
+				"jobs/pc/childrenIndex.js"
+			],
+			[
+				"cartoonindex",
+				"jobs/pc/cartoonIndex.js"
+			],
+			[
+				"customlisthea",
+				"units/customListPlayHeadBread.js"
+			],
+			[
+				"float",
+				"view/floatPlayerView.js"
+			],
+			[
+				"customli",
+				"model/customListModel.js"
+			],
+			[
+				"customlist",
+				"action/customList.js"
+			],
+			[
+				"customlistplay",
+				"jobs/pc/customListPlay.js"
+			],
+			[
+				"customlistplayheadpic",
+				"units/customListPlayHeadPic.js"
+			],
+			[
+				"floatplayerview",
+				"view/floatPlayerView.js"
+			],
+			[
+				"floa",
+				"action/floatplayer.js"
+			],
+			[
+				"flash",
+				"units/flashAndPageVideoListSync.js"
+			],
+			[
+				"largefocuspicture",
+				"units/largefocuspicture.js"
+			],
+			[
+				"tvindex",
+				"jobs/pc/tvIndex.js"
+			],
+			[
+				"moviehome",
+				"jobs/pc/movieHome.js"
+			],
+			[
+				"slide",
+				"units/slideSport.js"
+			],
+			[
+				"mysi",
+				"view/mySignInWheelView.js"
+			],
+			[
+				"newplaybase",
+				"units/newPlayBase.js"
+			],
+			[
+				"short",
+				"jobs/pc/shortPlay.js"
+			],
+			[
+				"newpla",
+				"units/newPlayBase.js"
+			],
+			[
+				"newsig",
+				"action/newSignWheel.js"
+			],
+			[
+				"icenter",
+				"jobs/pc/iCenter.js"
+			],
+			[
+				"newsign",
+				"action/newSignWheel.js"
+			],
+			[
+				"mysign",
+				"view/mySignInWheelView.js"
+			],
+			[
+				"adjustbodyclass",
+				"qiyiV2/units/adjustBodyClass.js"
+			],
+			[
+				"life",
+				"qiyiV2/jobs/pc/lifeIndex.js"
+			],
+			[
+				"qiyuti",
+				"common/view/qiyuTvAlbumView.js"
+			],
+			[
+				"qiyud",
+				"common/view/qiyuDocumentaryView.js"
+			],
+			[
+				"qiyujiaoyu",
+				"common/view/qiyujiaoyuAlbumView.js"
+			],
+			[
+				"qiyutv",
+				"units/qiyuTvAlbum.js"
+			],
+			[
+				"qiyuview",
+				"common/view/qiyuView.js"
+			],
+			[
+				"utval",
+				"units/uTvAlbumStill.js"
+			],
+			[
+				"tvalbumhottab",
+				"units/uTvAlbumHotTab.js"
+			],
+			[
+				"videocliplist",
+				"units/videocliplist.js"
+			],
+			[
+				"ctalbum1",
+				"jobs/ctalbum1.js"
+			],
+			[
+				"pugon",
+				"jobs/pc/pugongyingPlay.js"
+			],
+			[
+				"",
+				"units/slideSport.js"
+			],
+			[
+				"slidesport",
+				"units/slideSport.js"
+			],
+			[
+				"spor",
+				"jobs/pc/sportIndex.js"
+			],
+			[
+				"slidesp",
+				"units/slideSport.js"
+			],
+			[
+				"anim",
+				"kit/anim.js"
+			],
+			[
+				"newqr",
+				"units/newQrCode.js"
+			],
+			[
+				"qrcode",
+				"kit/qrCoder.js"
+			],
+			[
+				"spo",
+				"qiyiV2/jobs/pc/sportIndex.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 268.0,
+	"status_bar_visible": true
+}
