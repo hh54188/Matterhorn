@@ -18,7 +18,7 @@ requirejs.config({
 });
 
 require(["jquery", "jasmine-html"], function ($, jasmine){
-
+	// 摘自jasmine官方教程
     var jasmineEnv = jasmine.getEnv();
 
     jasmineEnv.updateInterval = 1000;
