@@ -1,5 +1,5 @@
 requirejs.config({
-    baseUrl: 'src'
+    baseUrl: 'js/src'
 });
 
 require(["object/extend"], function (extend){
