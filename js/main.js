@@ -6,34 +6,25 @@ requirejs.config({
 });
 
 require(["jquery", "object/extend"], function ($, extend){
-	function Person(name, age) {
-		this.name = name;
-		this.age = age;
-	}
+	function child() {};
+	console.log(child.prototype.constructor);
+	// window.Person = function () {}
 
-	Person.prototype = {
+	extend(child.prototype, {
 		say: function () {
 			console.log("hello");
+		},
+		walk: function () {
+			console.log("walk");
+		}
+	})
+	console.log(child.prototype.constructor);
+
+	child.prototype = {
+		test: function () {
+			console.log("test");
 		}
 	}
+	console.log(child.prototype.constructor)
 
-	function Child() {
-
-	}
-
-	var p = new Person("lee", 22);
-	var target = {};
-	$.extend(Child, Person);
-	console.log(Child);
-
-
-
-	// console.log(p);
-	// extend(target, p);
-	// console.log(target, p)
-
-
-
-	// extend(Child, Person);
-	// console.log(Child, Person);
 });
