@@ -5,26 +5,6 @@ requirejs.config({
     }
 });
 
-require(["jquery", "object/extend"], function ($, extend){
-	function child() {};
-	console.log(child.prototype.constructor);
-	// window.Person = function () {}
-
-	extend(child.prototype, {
-		say: function () {
-			console.log("hello");
-		},
-		walk: function () {
-			console.log("walk");
-		}
-	})
-	console.log(child.prototype.constructor);
-
-	child.prototype = {
-		test: function () {
-			console.log("test");
-		}
-	}
-	console.log(child.prototype.constructor)
+require(["view/paper"], function (extend){
 
 });
