@@ -1,10 +1,7 @@
 define(function (require, exports, module) {
 
-	function extend(props) {
-		var instance = new this(props);
-		return instance
-	}
+    function extend() {};
 
-	return extend;
+    return extend;
+
 })
-

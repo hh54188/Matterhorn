@@ -1,4 +1,4 @@
-define(['src/helper/isArray'], function (isArray) {
+define(['helper/isArray'], function (isArray) {
     describe("isArray", function() {
         var variable
 
