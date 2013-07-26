@@ -36,8 +36,8 @@ require(["jquery", "jasmine-html"], function ($, jasmine){
 
     var specs = [];
     // helper:
-    // specs.push('test/spec/isObjectSpec');
-    // specs.push('test/spec/isArraySpec');
+    specs.push('test/spec/isObjectSpec');
+    specs.push('test/spec/isArraySpec');
 
     // object:
     specs.push('test/spec/extendSpec');

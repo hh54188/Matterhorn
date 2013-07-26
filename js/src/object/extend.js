@@ -15,7 +15,8 @@ define(function (require, exports, module) {
         // 所以也就不做拓展了
 
         // 先做判断
-        if (arguments.length < 2 || !isObject(target) || !isObject(Parent)) {
+        // target可以允许是函数, $.extend同样允许函数
+        if (arguments.length < 2 || !isObject(Parent) || (!isObject(target) && !(target instanceof Function))) {
             return false;
         }
 

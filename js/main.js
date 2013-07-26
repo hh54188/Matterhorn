@@ -5,6 +5,6 @@ requirejs.config({
     }
 });
 
-require(["view/paper"], function (extend){
-
+require(["view/view"], function (View){
+	// View.extend();
 });

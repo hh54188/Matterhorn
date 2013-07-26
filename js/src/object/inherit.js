@@ -1,29 +1,10 @@
-function View() {};
-function Paper() {};
+define(function (require, exports, module) {
 
-View.prototype = {
-	location: {
-		"city": "UK"
-	},
-	arr: [1, 2, 3]
-}
+	function extend(props) {
+		var instance = new this(props);
+		return instance
+	}
 
-
-function F() {};
-
-// option 1
-F.prototype = View.prototype;
-Paper.prototype = new F();
-
-// option 2
-// Paper.prototype = View.prototype;
-
-Paper.prototype.constructor = Paper;
-
-Paper.prototype.location = "US";
-Paper.prototype.arr.push(4);
-
-
-var view = new View();
-console.log(view.location, view.arr);
+	return extend;
+})
 
