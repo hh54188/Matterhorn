@@ -22,6 +22,7 @@ define(function (require, exports, module) {
 
         // deepCopy
         for (var key in Parent) {
+            if (!Parent.hasOwnProperty(key)) continue;
             if (isObject(Parent[key])) {
                 target[key] = {};
                 extend(target[key], Parent[key]);
