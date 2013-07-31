@@ -5,7 +5,7 @@ requirejs.config({
     }
 });
 
-require(["object/extend"], function (extend){
+require(["helper/log"], function (log){
 	function Class() {};
 
 	Class.prototype.create = function () {}
@@ -19,15 +19,22 @@ require(["object/extend"], function (extend){
 
 		var proto = this.constructor.prototype; // 父类（基类）的prototype
 
-		function ProtoClas() {};
+		function ProtoClas() {}; //当前继承的类（临时构造函数）
 
 		var prototype = ProtoClas.prototype = (function (proto) {
 			function F() {};
 			F.prototype = proto;
 			return new F();
-		})(proto);
+		})(proto); 
+		// 当前类的prototype是一个新的对象，这个对象的构造函数是基类
+		// 注意到当前这样的prototype其实是空的对象，这样便可以把传进来参数作为当前类的参数赋值
+		// 这样当前类（和其实例）便能继承父类方法（在prototype chain链上向上查找）
 
-		ProtoClas.prototype.constructor = ProtoClas
+		// 这个匿名函数实际上是道格拉斯的object方法，另一个好处是可以避免修改子类的方法时父类方法也被影响
+
+		ProtoClas.prototype.constructor = ProtoClas 
+		// 重置当前类prototype的构造函数，非常重要！
+		// 如果缺少，当前类的实例的构造函数会变成父类
 
 		for (var i = 0; i < arguments.length; i++) {
 			var props = arguments[i];
@@ -39,30 +46,6 @@ require(["object/extend"], function (extend){
 		var instance = new ProtoClas();
 
 		return instance;
-
-	 //    // Populate our constructed prototype object
-	 //    Class.prototype = prototype;
-
-	 //    // Enforce the constructor to be what we expect
-	 //    Class.prototype.constructor = Class;								
-
-	 //    var instance = new Class();
-
-	 //    return instance
-		
-
-		// console.log("instance.constructor.prototype--->", instance.constructor.prototype);
-		// console.log("instance.constructor--->", instance.constructor);
-
-		// console.log("getPrototypeOf--->", Object.getPrototypeOf(instance));
-		// console.log("instance--->", instance);
-		// console.log("instance.constructor--->", instance.constructor);
-		// console.log("instance.constructor.prototype--->", instance.constructor.prototype);
-		// console.log("instance.constructor.prototype.constructor--->", instance.constructor.prototype.constructor);
-
-
-
-
 	}
 
 	Class.extend = function () {
@@ -74,22 +57,48 @@ require(["object/extend"], function (extend){
 	    return this.prototype.extend.apply(new this(), args);
 	}
 
+
+	// TEST:
+	log("--------------Level 1 inheritance-------------");
+
 	var Person = Class.extend({
-	    name: "lee",
-	    age: 12
-	})
+		say: function () {
+			console.log("Hello");
+		},
+		walk: function () {
+			console.log("walk");
+		}
+	});
 
-	console.log("Person------>", Person);
+	log("Person------>", Person);
+	log("Person's constructor------>", Person.constructor.prototype);
 
-	var Superman = Person.extend({
-	    skill: "fly"
-	})
+	log("--------------Level 2 inheritance-------------");
 
-	console.log("Superman------>", Superman);
+	var Man = Person.extend({
+		sex: "man"
+	});
 
-	var Normal = Person.extend({
-		sex: "Woman"
-	})
+	log("Man------>", Man);
+	log("Man's constructor------>", Man.constructor.prototype);
 
-	console.log("Normal------>", Normal);	
+	var Woman = Person.extend({
+		sex: "woman"
+	});
+
+	log("Woman------>", Woman);
+	log("Woman's constructor------>", Woman.constructor.prototype);
+
+	log("--------------Level 3 inheritance-------------");
+
+	var RichWoman = Woman.extend({
+		habits: ["shopping"],
+		money: "A lot",
+		BF: "A lot"
+	});
+
+	log("RichWoman------>", RichWoman);
+	log("RichWoman's constructor------>", RichWoman.constructor.prototype);
+
+
 });
