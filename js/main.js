@@ -5,21 +5,41 @@ requirejs.config({
     }
 });
 
-require(["helper/log"], function (log){
+require(["object/extend","helper/log"], function (extend, log){
 	function Class() {};
 
-	Class.prototype.create = function () {}
+	Class.prototype.instanceof = function (instance, clas) {
+		var clasConstr = clas.constructor;
+		var instConstr = clas.constructor;
+
+		log("clasConstr------>", clasConstr.prototype);
+		log("instConstr------>", instConstr.prototype);
+
+		if (clasConstr === instConstr) return true;
+		else return false;
+	}
+
+	Class.prototype.create = function () {
+		var constr = this.constructor;
+		var obj = new constr();
+		for (var i = 0; i < arguments.length; i++) {
+			var props = arguments[i];
+			for (var name in props) {
+				obj[name] = props[name];
+			}
+		}
+		return obj;
+	}
 
 	Class.prototype.extend = function () {
 
 		// 一个类当然最好是函数，但是不可能生成函数，所以只能生成一个实例
 		// 一个实例作为类，它的所有方法和需要继承的东西想必要放在prototype中
-
 		var constr = this.constructor; // 父类（基类）的构造函数
 
 		var proto = this.constructor.prototype; // 父类（基类）的prototype
 
-		function ProtoClas() {}; //当前继承的类（临时构造函数）
+		function ProtoClas() {}; //当前继承（生成）的类（临时构造函数）
 
 		var prototype = ProtoClas.prototype = (function (proto) {
 			function F() {};
@@ -32,7 +52,7 @@ require(["helper/log"], function (log){
 
 		// 这个匿名函数实际上是道格拉斯的object方法，另一个好处是可以避免修改子类的方法时父类方法也被影响
 
-		ProtoClas.prototype.constructor = ProtoClas 
+		ProtoClas.prototype.constructor = ProtoClas;
 		// 重置当前类prototype的构造函数，非常重要！
 		// 如果缺少，当前类的实例的构造函数会变成父类
 
@@ -43,9 +63,11 @@ require(["helper/log"], function (log){
 			}
 		}	
 
-		var instance = new ProtoClas();
+		return new ProtoClas();
+	}
 
-		return instance;
+	Class.instanceof = function () {
+		return this.prototype.instanceof.call(this, arguments[0], arguments[1]);
 	}
 
 	Class.extend = function () {
@@ -86,8 +108,8 @@ require(["helper/log"], function (log){
 		sex: "woman"
 	});
 
-	log("Woman------>", Woman);
-	log("Woman's constructor------>", Woman.constructor.prototype);
+	// log("Woman------>", Woman);
+	// log("Woman's constructor------>", Woman.constructor.prototype);
 
 	log("--------------Level 3 inheritance-------------");
 
@@ -97,8 +119,8 @@ require(["helper/log"], function (log){
 		BF: "A lot"
 	});
 
-	log("RichWoman------>", RichWoman);
-	log("RichWoman's constructor------>", RichWoman.constructor.prototype);
+	// log("RichWoman------>", RichWoman);
+	// log("RichWoman's constructor------>", RichWoman.constructor.prototype);
 
 
 });
