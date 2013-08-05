@@ -93,7 +93,5 @@ require(["object/extend","helper/log"], function (extend, log){
 		name: "Lee",
 		age: 22
 	})
-
-	console.log(person);
 	
 });
