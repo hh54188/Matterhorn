@@ -75,9 +75,18 @@ require(["object/extend","helper/log"], function (extend, log){
 	    return this.prototype.extend.apply(new this(), args);
 	}
 
-	/*有一个模棱两可的问题
-	1.实例也保留了extend和create方法，是不是应该屏蔽掉，或者如何屏蔽掉？
-	2.私有变量 和 公有变量*/
+	/*
+
+	有一个模棱两可的问题
+	1.实例也保留了extend和create方法：
+		1.应不应该有，如果没有必要有，应该如何屏蔽？
+		2.如果可以有，应该做什么样的处理，用心的方法覆盖？
+
+	2.私有属性（方法） 和 公有属性（方法）
+		1.如何让其他对象不能访问我的对象，但是自己又能访问？——闭包！
+		2.怎么区分用户传入的是私有变量还是公有变量？
+
+	*/
 
 	// TEST:
 	var Person = Class.extend({
@@ -91,9 +100,9 @@ require(["object/extend","helper/log"], function (extend, log){
 
 	var person = Person.create({
 		name: "Lee",
-		age: 22
+		age: 22	
 	})
 
 	console.log(person);
-	
+
 });
