@@ -2,8 +2,147 @@
 <html>
 <head>
 	<title>Matterhorn</title>
-    <!--<script type="text/javascript" src="http://static.iqiyi.com/js/lib/sea1.2.js"></script>-->
 	<script type="text/javascript" src="js/lib/require.js" data-main="js/main"></script>
+    <script type="text/javascript">
+        var Person = {
+            say: function () {
+                console.log("Hello");
+            }
+        }
+
+        function object(O) {
+            function F() {};
+            F.prototype = O;
+            return new F();
+        }
+
+        // Object.create 生成一个新的对象
+        // 这个对象的prototype对象是create的传入的对象参数
+        // 通俗点说 创建了一个对象，这个对象继承自另一个对象
+        // Creates a new object with the specified prototype object and properties.
+        var person = Object.create(Person);
+        var person1 = object(Person);
+
+        console.log(person);
+        console.log(person.constructor);
+
+        console.log(person1);
+        console.log(person1.constructor);        
+
+        /*  
+            // Object.create:
+            person <===> {...} <===> Object.create(Person)
+                         {...}.__proto__ <===> Person
+            
+            // object:
+            person <===> {...}
+                         {...} <===> new F();
+                                         F().prototype <==> Person
+                                         {...}.__proto__ <==> Person
+
+            返回的那个对象不能凭空生成，又要考虑重写prototype，于是用了中间实例 new F()
+        */
+
+        // 回忆一下经典的应用：
+        function Hero() {}
+        Hero.prototype.say = function () {}
+
+        function F() {}; 
+        F.prototype = Object.create(Hero.prototype);
+        F.prototype.constructor = F; // 非常重要，如果没有的话，f.constructor就变成Hero了！
+        var f = new F();
+
+        /*
+            两项改进：
+            1.不再使用函数作为基类
+            2.不再使用new关键字
+        */
+        var Rectangle = {
+            area: function () {
+                return this.width * this.height;
+            }
+        };
+         
+        var rect = Object.create(Rectangle);
+
+        rect.width = 5;
+        rect.height = 10;
+        rect.area();
+
+        // 优化 .width/.height 部分
+
+        var Rectangle = {
+            create: function (width, height) {
+                var self = Object.create(this);
+                self.height = height;
+                self.width = width;
+                return self;
+            },
+            area: function () {
+                return this.width * this.height;
+            }
+        };
+         
+        var rect = rectangle.create(5, 10);
+
+        // 传统办法:
+        function Rectangle(width, height) {
+            this.height = height;
+            this.width = width;
+        }
+          
+        Rectangle.prototype.area = function () {
+            return this.width * this.height;
+        };
+          
+        var rect = new Rectangle(5, 10);
+
+        // 正方形 ：
+
+        var Square = Object.create(Rectangle);
+
+        Square.create = function (side) {
+            return Rectangle.create.call(this, side, side);
+        };
+         
+        var sq = Square.create(5);
+
+        // 传统正方形办法:
+        function Square() {
+            Rectangle.call(this, side, side);
+        }
+         
+        Square.prototype = Object.create(Rectangle.prototype);
+         
+        Square.prototype.constructor = Square;
+         
+        var sq = square.create(5);
+
+        // 不如拓展一个extend方法:
+        Object.prototype.extend = function (extension) {
+            var hasOwnProperty = Object.hasOwnProperty;
+            var object = Object.create(this);
+          
+            for (var property in extension)
+                if (hasOwnProperty.call(extension, property) ||
+                    typeof object[property] === "undefined")
+                        object[property] = extension[property];
+          
+            return object;
+        };
+
+        // 这样来使用:
+        var Square = Rectangle.extend({
+            create: function (side) {
+                return Rectangle.create.call(this, side, side);
+            }
+        });
+         
+        var sq = Square.create(5);
+
+
+
+    </script>
 </head>
 <body>
 
