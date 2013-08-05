@@ -10,25 +10,51 @@
             }
         }
 
+        function object(O) {
+            function F() {};
+            F.prototype = O;
+            return new F();
+        }
+
         // Object.create 生成一个新的对象
         // 这个对象的prototype对象是create的传入的对象参数
+        // Creates a new object with the specified prototype object and properties.
         var person = Object.create(Person);
+        var person1 = object(Person);
 
-        // 打印返回对象
-        // 用Object.create方法或者__proto___查看
-        // 新对象的prototype对象却是改变了
         console.log(person);
-        console.log(Object.getPrototypeOf(person)); //Object {say: function}
+        console.log(person.constructor);
 
-        // 但是打印新对象构造函数
-        console.log(person.constructor); // function Object() { [native code] } 
-        // 和构造函数prototype属性，与新对象的prototype不一致
-        console.log(person.constructor.prototype); // Object {} 
+        console.log(person1);
+        console.log(person1.constructor);        
 
-        // 一般来说新对象的__proto__总是指向构造函数的prototype属性
-        // 上面的例子可以这么理解：虽然person的构造函数是原生的Object
-        // 但我们改变了这个对象prototype指向，虽然它原来指向Object.prototype
-        // 但是我们让它指向了新的对象，注意修改了__proto__是只读属性，修改它是没有用的
+        /*  
+            // Object.create:
+            person <===> {...} <===> Object.create(Person)
+                         {...}.__proto__ <===> Person
+            
+            // object:
+            person <===> {...}
+                         {...} <===> new F();
+                                         F().prototype <==> Person
+                                         {...}.__proto__ <==> Person
+
+            返回的那个对象不能凭空生成，又要考虑重写prototype，于是用了中间实例 new F()
+        */
+
+        // 对比另一个new时代的经典继承例子
+        function Hero() {}
+        Hero.prototype.say = function () {}
+
+        function F() {}; 
+        F.prototype = Object.create(Hero.prototype);
+        F.prototype.constructor = F; // 非常重要，如果没有的话，f.constructor就变成Hero了！
+        var f = new F();
+
+        console.log(f);
+        console.log(f.constructor);
+
+
     </script>
 </head>
 <body>
