@@ -5,6 +5,7 @@
 	<script type="text/javascript" src="js/lib/require.js" data-main="js/main"></script>
     <script type="text/javascript">
         var Person = {
+            name: "Lee",
             say: function () {
                 console.log("Hello");
             }
@@ -16,10 +17,12 @@
             return new F();
         }
 
-        // Object.create 生成一个新的对象
-        // 这个对象的prototype对象是create的传入的对象参数
-        // 通俗点说 创建了一个对象，这个对象继承自另一个对象
-        // Creates a new object with the specified prototype object and properties.
+        /*        
+            Object.create 生成一个新的对象
+            这个对象的prototype对象是create的传入的对象参数
+            通俗点说 创建了一个对象，这个对象继承自另一个对象
+            Creates a new object with the specified prototype object and properties.
+        */
         var person = Object.create(Person);
         var person1 = object(Person);
 
@@ -27,7 +30,34 @@
         console.log(person.constructor);
 
         console.log(person1);
-        console.log(person1.constructor);        
+        console.log(person1.constructor);
+
+        // 我们可以用以下方法来验证:
+        console.log("--------------validate person-------------");
+        console.log(person.hasOwnProperty("name"));
+        console.log(person.constructor);
+        console.log(Object.getPrototypeOf(person));
+        console.log(person.constructor.prototype);        
+        console.log("--------------validate person1-------------");
+        console.log(person1.hasOwnProperty("name"));
+        console.log(person1.constructor);
+        console.log(Object.getPrototypeOf(person1));
+        console.log(person1.constructor.prototype);
+        /*
+            http://stackoverflow.com/questions/18053889/confused-about-douglas-crockfords-object-function
+            什么情况下要重置prototype.constroctor呢？
+            Man.prototype = Object.create(Person.prototype)
+            Man.prototype.constructor = Man;
+
+            也就是说只有当你需要创建一个子类时，这里的子类定义是
+            “构造函数的prototype继承自其它构造函数的prototype”
+
+            但是Object.create或者object函数的任务是，创建一个继承自
+            其它对象的对象，中间函数F是不应该被暴露的
+
+            如果我们在F.prototype = O;后真的添加F.prototype.constructor = F会怎么样
+            那么O就会收到影响，不是么
+        */
 
         /*  
             // Object.create:
@@ -83,7 +113,7 @@
             }
         };
          
-        var rect = rectangle.create(5, 10);
+        var rect = Rectangle.create(5, 10);
 
         // 传统办法:
         function Rectangle(width, height) {
