@@ -2,8 +2,10 @@
 <html>
 <head>
 	<title>Matterhorn</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/main1.js"></script>
 	<script type="text/javascript" src="js/lib/require.js" data-main="js/main"></script>
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         var Person = {
             name: "Lee",
             say: function () {
@@ -45,6 +47,7 @@
         console.log(person1.constructor.prototype);
         /*
             http://stackoverflow.com/questions/18053889/confused-about-douglas-crockfords-object-function
+            
             什么情况下要重置prototype.constroctor呢？
             Man.prototype = Object.create(Person.prototype)
             Man.prototype.constructor = Man;
@@ -149,6 +152,14 @@
         var sq = square.create(5);
 
         // 不如拓展一个extend方法:
+
+        // 对比这个extend方法，其实与Rectangle的create方法是没有区别
+        // 都是首先 var object = Object.create(this);
+        // 再把参数对象当做属性合并进来
+
+        // 这一系列方法的弊端在于无法真正区分“类”，
+        // 我认为这样欠妥，会给人迷惑，我认为类的方法只能存在于prototype上
+        // create和extend方法返回对象其实是一个性质的
         Object.prototype.extend = function (extension) {
             var hasOwnProperty = Object.hasOwnProperty;
             var object = Object.create(this);
@@ -161,6 +172,12 @@
             return object;
         };
 
+        /*
+            这个方法有一个缺陷: 子类中新增的方法会存在ownProperty中
+            而不是prototype中
+            
+        */
+
         // 这样来使用:
         var Square = Rectangle.extend({
             create: function (side) {
@@ -169,10 +186,7 @@
         });
          
         var sq = Square.create(5);
-
-
-
-    </script>
+    </script>-->
 </head>
 <body>
 

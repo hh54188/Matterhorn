@@ -12,7 +12,7 @@ define(function (require, exports, module) {
     // 可以使用这个方法对xxx.prototype进行拓展，这样构造函数不会被改变
     function extend(target, Parent) {
         // 有考虑过多继承，但无非是把参数做一个轮询，单个继承的方法与以下相同
-        // 所以也就不做拓展了
+        // 所以也就不做拓展了    
 
         // 先做判断
         // target可以允许是函数, $.extend同样允许函数
@@ -22,7 +22,7 @@ define(function (require, exports, module) {
 
         // deepCopy
         for (var key in Parent) {
-            if (!Parent.hasOwnProperty(key)) continue;
+            // if (!Parent.hasOwnProperty(key)) continue;
             if (isObject(Parent[key])) {
                 target[key] = {};
                 extend(target[key], Parent[key]);
