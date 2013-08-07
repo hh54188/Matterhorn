@@ -9,10 +9,15 @@ function object(o) {
 
 function Class() {}
 
+Class.prototype.create = function () {
+    return new this();
+}
+
 Class.prototype.extend = function (props) {
     function F() {};
 
     F.extend = this.prototype.extend;
+    F.create = this.prototype.create;
 
     obj = object(this.prototype);
     for (var name in props) {
@@ -30,6 +35,9 @@ Class.extend = function () {
 var Human = Class.extend({
     say: function () {}
 })
+
+var human = Human.create();
+log("one human", human);
 
 
 log(Human.prototype);
