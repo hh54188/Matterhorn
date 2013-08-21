@@ -2,7 +2,7 @@
     仍然使用new 关键字，但是用extend和create封装起来
     不推荐直接修改Object，用了自定义的Class类
 
-    这个版本中暂时未引入._super 机制
+    引入init和super机制
 */
 
 // Super Class
@@ -36,11 +36,22 @@ Class.prototype.extend = function (props) {
     }
     SubClass.prototype.constructor = SubClass;
 
-    // Reset callSuper method:
+
+    // if (this.prototype.init) {
+    //     SubClass.prototype.callSuper = function() {
+    //         self.prototype.init();
+    //     }
+    // }
+
     if (_super.init) {
-        (function (init) {
-            SubClass.prototype.callSuper = init;
-        })(_super.init)
+
+        (function (self) {
+            SubClass.prototype.callSuper = self.prototype.init;
+        })(this)
+
+        // SubClass.prototype.callSuper = function() {
+        //     _super.init();
+        // }
     }
 
     // 重新赋值extend 和 create
@@ -59,7 +70,7 @@ Class.extend = function (props) {
 // 实例的say方法可以覆盖class中的say方法
 var Human = Class.extend({
     init: function (opt) {
-        this.nature = opt.nature || "Human";
+        this.nature = "Human";
         this.say = function () {
             console.log("I am a human");
         }
@@ -84,7 +95,7 @@ human.walk();
 var Man = Human.extend({
     init: function (opt) {
         this.callSuper(opt);
-        this.sex = opt.sex;
+        // this.sex = opt.sex;
         this.say = function () {
             console.log("I am a man");
         }
@@ -100,20 +111,20 @@ man.say();
 man.walk();
 
 // 定义中国人
-// var ChineseMan = Man.extend({
-//     init: function (opt) {
-//         opt = opt || {};
-//         this.callSuper(opt);
-//         this.city = "Beijing";
-//         this.say = function () {
-//             console.log("I am Chinese");
-//         }
-//     }
-// })
+var ChineseMan = Man.extend({
+    init: function (opt) {
+        opt = opt || {};
+        this.callSuper(opt);
+        this.city = "Beijing";
+        this.say = function () {
+            console.log("I am Chinese");
+        }
+    }
+})
 
-// var chinese = ChineseMan.create();
+var chinese = ChineseMan.create();
 // console.log(chinese);
-// chinese.say();
+chinese.say();
 // chinese.walk();
 
 

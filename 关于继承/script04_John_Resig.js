@@ -19,9 +19,21 @@ function object(o) {
 Class.extend = function extend(props) {
 
     var prototype = new this();
+    var super = this.prototype;
 
     for (var name in props) {
-        prototype[name] = props[name];
+        if (typeof props[name] == "function " && typeof super[name] == "function") {
+            prototype[name] = (function (name, fn) {
+                return function () {
+                    this.callSuper = super[name]; // ?
+                    var ret = fn.apply(this, arguments);
+                    return ret;
+                }
+            })(name, props[name])
+            // })(super[name], props[name])
+        } else {
+            prototype[name] = props[name];    
+        }
     }
 
     function Class() {}
@@ -42,6 +54,7 @@ Class.extend = function extend(props) {
 
 var Human = Class.extend({
     init: function (opt) {
+        opt = opt || {};
         this.nature = opt.nature || "Human";
         this.say = function () {
             console.log("I am a human");
@@ -52,18 +65,38 @@ var Human = Class.extend({
     }
 });
 
+var human = Human.create();
+human.walk();
+
+// 定义Man
+
 var Man = Human.extend({
     init: function (opt) {
-        this.sex = opt.sex;
+        opt = opt || {};
+        this.sex = opt.sex || "Man";
         this.say = function () {
             console.log("I am a man");
         }
     }
 });
 
-console.log(new Man());
-// console.log(Man);
-// var man = Man.create(); console.log(man);
+var man = Man.create();
+console.log(man);
+man.say();
+
+var Person = Man.extend({
+    init: function () {
+        this.say = function () {
+            console.log("I am a programer");
+        }
+    }
+})
+
+var person = Person.create();
+console.log(person);
+person.say();
+
+
 
 
 
