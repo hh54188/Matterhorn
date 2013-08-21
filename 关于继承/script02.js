@@ -60,6 +60,7 @@ var Man = Human.extend({
     }
 })
 
+
 console.log(Man.create({
     name: "Lee",
     age: 22

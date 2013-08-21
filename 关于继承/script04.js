@@ -17,6 +17,7 @@ function object(o) {
 }
 
 Class.extend = function extend(props) {
+
     var prototype = new this();
 
     for (var name in props) {
@@ -26,10 +27,15 @@ Class.extend = function extend(props) {
     function Class() {}
 
     Class.prototype = prototype;
-    Class.prototype.constructor = prototype;
+    Class.prototype.constructor = Class;
 
-    // 尽量避免使用arguments.callee
+    // 尽量避免使用arguments.callee 详见MDN
     Class.extend =  extend;
+    Class.create = function () {
+        var instance = new this();
+        instance.init();
+        return instance;
+    }
 
     return Class;
 }
