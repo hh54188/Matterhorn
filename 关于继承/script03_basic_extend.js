@@ -20,6 +20,11 @@ function object(o) {
 
 Class.prototype.create = function (opt) {
     var instance = new this();
+
+    if (instance.__callSuper) {
+        instance.__callSuper();
+    }
+
     if (instance.init) {
         /*
             一个子类继承父类的时候默认是会继承父类的所有属性和方法
@@ -29,9 +34,6 @@ Class.prototype.create = function (opt) {
             在调用子类的构造函数的同时也应该调用父类的构造函数
             保证父类的属性子类能够得到继承
         */
-        if (instance.__callSuper) {
-            instance.__callSuper();
-        }
         instance.init(opt);
     }
     return instance;
@@ -48,6 +50,9 @@ Class.prototype.extend = function (props) {
 
             SubClass.prototype[name] = (function (super_fn, fn) {
                 return function () {
+                    /*
+                        callSuper是动态生成的，只有当用户调用同名方法时才会生成
+                    */
                     var tmp = this.callSuper;
 
                     this.callSuper = super_fn;
@@ -55,6 +60,13 @@ Class.prototype.extend = function (props) {
                     var ret = fn.apply(this, arguments);
 
                     this.callSuper = tmp;
+
+                    /*
+                        如果用户没有callsuper方法，则delete
+                    */
+                    if (!this.callSuper) {
+                        delete this.callSuper;
+                    }
 
                     return ret;
                 }
@@ -117,7 +129,7 @@ Class.prototype.extend = function (props) {
         */
 
         SubClass.prototype.__callSuper = function () {
-            var tmp = SubClass.prototype.callSuper;
+            var tmp = SubClass.prototype.__callSuper;
             if (_super._callSuper) {
                 SubClass.prototype.__callSuper = _super.__callSuper;    
             }
@@ -140,15 +152,13 @@ Class.extend = function (props) {
 
 var Human = Class.extend({
     init: function () {
-
+        this.nature = "Human";
     },
     say: function () {
         console.log("I am a human");
     }
 })
 
-var human = Human.create();
-human.say();
 
 var Man = Human.extend({
     init: function () {
@@ -157,18 +167,27 @@ var Man = Human.extend({
     say: function () {
         this.callSuper();
         console.log("I am a man");
+    }
+});
+
+var Person = Man.extend({
+    init: function () {
+        this.sex = "man";
     },
-    walk: function () {
-        console.log("I am walking");
+    say: function () {
+        this.callSuper();
+        console.log("I am Lee");
     }
 })
 
-
-var man = Man.create();
-man.say();
-man.walk();
+console.log(typeof Person);
+console.log(Person.prototype);
 
 
+var p = Person.create();
+// p.say();
+console.log(p.__proto__);
+console.log(Object.getPrototypeOf(p));
 
 
 
