@@ -19,18 +19,23 @@ function object(o) {
 Class.extend = function extend(props) {
 
     var prototype = new this();
-    var super = this.prototype;
+    var _super = this.prototype;
 
     for (var name in props) {
-        if (typeof props[name] == "function " && typeof super[name] == "function") {
-            prototype[name] = (function (name, fn) {
+        if (typeof props[name] == "function " && typeof _super[name] == "function") {
+            prototype[name] = (function (super_fn, fn) {
                 return function () {
-                    this.callSuper = super[name]; // ?
+                    var tmp = this.callSuper;
+
+                    this.callSuper = super_fn;
+
                     var ret = fn.apply(this, arguments);
+
+                    this.callSuper = tmp;
+
                     return ret;
                 }
-            })(name, props[name])
-            // })(super[name], props[name])
+            })(_super[name], props[name])
         } else {
             prototype[name] = props[name];    
         }
@@ -53,48 +58,26 @@ Class.extend = function extend(props) {
 }
 
 var Human = Class.extend({
-    init: function (opt) {
-        opt = opt || {};
-        this.nature = opt.nature || "Human";
+    init: function () {
         this.say = function () {
             console.log("I am a human");
         }
-    },
-    walk: function () {
-        console.log(this.nature + " is walking");
     }
 });
 
 var human = Human.create();
-human.walk();
-
-// 定义Man
+human.say();
 
 var Man = Human.extend({
-    init: function (opt) {
-        opt = opt || {};
-        this.sex = opt.sex || "Man";
-        this.say = function () {
-            console.log("I am a man");
-        }
-    }
-});
-
-var man = Man.create();
-console.log(man);
-man.say();
-
-var Person = Man.extend({
     init: function () {
         this.say = function () {
-            console.log("I am a programer");
-        }
+            console.log("I am a man");
+        }        
     }
 })
 
-var person = Person.create();
-console.log(person);
-person.say();
+var man = Man.create();
+man.say();
 
 
 

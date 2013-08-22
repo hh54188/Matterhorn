@@ -21,7 +21,18 @@ function object(o) {
 Class.prototype.create = function (opt) {
     var instance = new this();
     if (instance.init) {
-        instance.init(opt); //调用自定义的构造函数
+        /*
+            一个子类继承父类的时候默认是会继承父类的所有属性和方法
+            方法继承我们放在prototype中实现
+            而属性呢
+
+            在调用子类的构造函数的同时也应该调用父类的构造函数
+            保证父类的属性子类能够得到继承
+        */
+        if (instance.__callSuper) {
+            instance.__callSuper();
+        }
+        instance.init(opt);
     }
     return instance;
 }
@@ -29,13 +40,31 @@ Class.prototype.create = function (opt) {
 Class.prototype.extend = function (props) {
     var SubClass = function () {};
     var _super = this.prototype;
-    var self = this // SuperClass context
+    var self = this;
 
     SubClass.prototype = object(this.prototype);
     for (var name in props) {
-        SubClass.prototype[name] = props[name];
+        if (typeof props[name] == "function" && typeof _super[name] == "function") {
+
+            SubClass.prototype[name] = (function (super_fn, fn) {
+                return function () {
+                    var tmp = this.callSuper;
+
+                    this.callSuper = super_fn;
+
+                    var ret = fn.apply(this, arguments);
+
+                    this.callSuper = tmp;
+
+                    return ret;
+                }
+            })(_super[name], props[name])  
+        } else {
+            SubClass.prototype[name] = props[name];    
+        }
     }
-    SubClass.prototype.constructor = SubClass;
+
+    SubClass.prototype.constructor = SubClass; 
 
 
     //  折腾好几天才解决
@@ -85,18 +114,16 @@ Class.prototype.extend = function (props) {
             但这样的话子类的callSuper不是被覆盖了？
             没关系，最后还原就是了
             SubClass.prototype.callSuper = tmp;
-
-
-                
         */
-        SubClass.prototype.callSuper = function () {
+
+        SubClass.prototype.__callSuper = function () {
             var tmp = SubClass.prototype.callSuper;
-            if (_super.callSuper) {
-                SubClass.prototype.callSuper = _super.callSuper;    
+            if (_super._callSuper) {
+                SubClass.prototype.__callSuper = _super.__callSuper;    
             }
             
             _super.init.apply(this, arguments);
-            SubClass.prototype.callSuper = tmp;
+            SubClass.prototype.__callSuper = tmp;
         }
     }
 
@@ -111,55 +138,37 @@ Class.extend = function (props) {
     return this.prototype.extend.call(this, props);
 }
 
-
-// 定义Human类
-// 实例的say方法可以覆盖class中的say方法
 var Human = Class.extend({
     init: function () {
-        this.nature = "Human";
-        this.say = function () {
-            console.log("I am a human");
-        }
+
+    },
+    say: function () {
+        console.log("I am a human");
     }
-});
+})
 
-// 实例化一个Human
 var human = Human.create();
-
-// 测试Human
-console.log(human);
 human.say();
 
-// 定义Man类，为Human的子类
 var Man = Human.extend({
     init: function () {
+
+    },
+    say: function () {
         this.callSuper();
-        this.sex = "man";
-        this.say = function () {
-            console.log("I am a man");
-        }
+        console.log("I am a man");
+    },
+    walk: function () {
+        console.log("I am walking");
     }
 })
+
 
 var man = Man.create();
-
-console.log(man);
 man.say();
+man.walk();
 
-// 定义中国人
-var ChineseMan = Man.extend({
-    init: function () {
-        this.callSuper();
-        this.city = "Beijing";
-        this.say = function () {
-            console.log("I am Chinese");
-        }
-    }
-})
 
-var chinese = ChineseMan.create();
-console.log(chinese);
-chinese.say();
 
 
 

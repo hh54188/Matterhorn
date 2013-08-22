@@ -1,8 +1,3 @@
-/* Simple JavaScript Inheritance
- * By John Resig http://ejohn.org/
- * MIT Licensed.
- */
-// Inspired by base2 and Prototype
 (function(){
   var initializing = false, fnTest = /xyz/.test(function(){xyz;}) ? /\b_super\b/ : /.*/;
  
@@ -16,10 +11,7 @@
     // Instantiate a base class (but only create the instance,
     // don't run the init constructor)
     initializing = true;
-
     var prototype = new this();
-    var prototype = Object.create(this.prototype)
-
     initializing = false;
    
     // Copy the properties over onto the new prototype
@@ -49,8 +41,8 @@
     // The dummy class constructor
     function Class() {
       // All construction is actually done in the init method
-      // if ( !initializing && this.init )
-      //   this.init.apply(this, arguments);
+      if ( !initializing && this.init )
+        this.init.apply(this, arguments);
     }
    
     // Populate our constructed prototype object
@@ -61,19 +53,13 @@
  
     // And make this class extendable
     Class.extend = arguments.callee;
-
     Class.create = function () {
-      var instance = new this();
-      if (instance.init) {
-        instance.init();  
-      }
-      return instance;
+        var instance = new this();
+        instance.init();
+        return instance;
     }
+
    
     return Class;
   };
 })();
-
-var Human = Class.extend();
-
-human = Human.create();
