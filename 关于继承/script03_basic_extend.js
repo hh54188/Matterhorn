@@ -29,6 +29,7 @@ Class.prototype.create = function (opt) {
 Class.prototype.extend = function (props) {
     var SubClass = function () {};
     var _super = this.prototype;
+    var self = this // SuperClass context
 
     SubClass.prototype = object(this.prototype);
     for (var name in props) {
@@ -36,22 +37,17 @@ Class.prototype.extend = function (props) {
     }
     SubClass.prototype.constructor = SubClass;
 
-
-    // if (this.prototype.init) {
-    //     SubClass.prototype.callSuper = function() {
-    //         self.prototype.init();
-    //     }
-    // }
-
+    // 非常艰难
     if (_super.init) {
-
-        (function (self) {
-            SubClass.prototype.callSuper = self.prototype.init;
-        })(this)
-
-        // SubClass.prototype.callSuper = function() {
-        //     _super.init();
-        // }
+        SubClass.prototype.callSuper = function () {
+            var tmp = SubClass.prototype.callSuper;
+            if (_super.callSuper) {
+                SubClass.prototype.callSuper = _super.callSuper;    
+            }
+            
+            _super.init.apply(this, arguments);
+            SubClass.prototype.callSuper = tmp;
+        }
     }
 
     // 重新赋值extend 和 create
@@ -69,52 +65,41 @@ Class.extend = function (props) {
 // 定义Human类
 // 实例的say方法可以覆盖class中的say方法
 var Human = Class.extend({
-    init: function (opt) {
+    init: function () {
         this.nature = "Human";
         this.say = function () {
             console.log("I am a human");
         }
-    },
-    walk: function () {
-        console.log(this.nature + " is walking");
     }
 });
 
 // 实例化一个Human
-var human = Human.create({
-    nature: "human"
-});
+var human = Human.create();
 
 // 测试Human
 console.log(human);
 human.say();
-human.walk();
-
 
 // 定义Man类，为Human的子类
 var Man = Human.extend({
-    init: function (opt) {
-        this.callSuper(opt);
-        // this.sex = opt.sex;
+    init: function () {
+        this.callSuper();
+        this.sex = "man";
         this.say = function () {
             console.log("I am a man");
         }
     }
 })
 
-var man = Man.create({
-    sex: "man"
-});
+var man = Man.create();
 
 console.log(man);
 man.say();
-man.walk();
 
 // 定义中国人
 var ChineseMan = Man.extend({
-    init: function (opt) {
-        opt = opt || {};
-        this.callSuper(opt);
+    init: function () {
+        this.callSuper();
         this.city = "Beijing";
         this.say = function () {
             console.log("I am Chinese");
@@ -123,9 +108,8 @@ var ChineseMan = Man.extend({
 })
 
 var chinese = ChineseMan.create();
-// console.log(chinese);
+console.log(chinese);
 chinese.say();
-// chinese.walk();
 
 
 
