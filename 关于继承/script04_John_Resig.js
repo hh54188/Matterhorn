@@ -22,7 +22,9 @@ Class.extend = function extend(props) {
     var _super = this.prototype;
 
     for (var name in props) {
-        if (typeof props[name] == "function " && typeof _super[name] == "function") {
+
+        if (typeof props[name] == "function" && typeof _super[name] == "function") {
+
             prototype[name] = (function (super_fn, fn) {
                 return function () {
                     var tmp = this.callSuper;
@@ -33,6 +35,9 @@ Class.extend = function extend(props) {
 
                     this.callSuper = tmp;
 
+                    if (!this.callSuper) {
+                        delete this.callSuper;
+                    }
                     return ret;
                 }
             })(_super[name], props[name])
@@ -59,25 +64,45 @@ Class.extend = function extend(props) {
 
 var Human = Class.extend({
     init: function () {
-        this.say = function () {
-            console.log("I am a human");
-        }
-    }
-});
-
-var human = Human.create();
-human.say();
-
-var Man = Human.extend({
-    init: function () {
-        this.say = function () {
-            console.log("I am a man");
-        }        
+        this.nature = "Human";
+    },
+    say: function () {
+        console.log("I am a human");
     }
 })
 
+var human = Human.create();
+console.log(human);
+human.say();
+
+
+var Man = Human.extend({
+    init: function () {
+        this.sex = "man";
+    },
+    say: function () {
+        this.callSuper();
+        console.log("I am a man");
+    }
+});
+
 var man = Man.create();
+console.log(man);
 man.say();
+
+var Person = Man.extend({
+    init: function () {
+        this.name = "lee";
+    },
+    say: function () {
+        this.callSuper();
+        console.log("I am Lee");
+    }
+})
+
+var p = Person.create();
+console.log(p);
+p.say();
 
 
 

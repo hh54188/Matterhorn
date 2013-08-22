@@ -159,10 +159,14 @@ var Human = Class.extend({
     }
 })
 
+var human = Human.create();
+console.log(human);
+human.say();
+
 
 var Man = Human.extend({
     init: function () {
-
+        this.sex = "man";
     },
     say: function () {
         this.callSuper();
@@ -170,9 +174,13 @@ var Man = Human.extend({
     }
 });
 
+var man = Man.create();
+console.log(man);
+man.say();
+
 var Person = Man.extend({
     init: function () {
-        this.sex = "man";
+        this.name = "lee";
     },
     say: function () {
         this.callSuper();
@@ -180,14 +188,9 @@ var Person = Man.extend({
     }
 })
 
-console.log(typeof Person);
-console.log(Person.prototype);
-
-
 var p = Person.create();
-// p.say();
-console.log(p.__proto__);
-console.log(Object.getPrototypeOf(p));
+console.log(p);
+p.say();
 
 
 
