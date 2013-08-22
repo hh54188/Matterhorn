@@ -37,8 +37,58 @@ Class.prototype.extend = function (props) {
     }
     SubClass.prototype.constructor = SubClass;
 
-    // 非常艰难
+
+    //  折腾好几天才解决
     if (_super.init) {
+        /*
+            为什么不能直接写
+            SubClass.prototype.callSuper = _super.init
+
+            B.init = function(){
+                this.callSuper();
+            }
+
+            A.init = function (){
+                this.callSuper();
+            }
+
+            A.callSuper = f(){
+                this.init();
+            }
+
+            A.init();
+
+            A.init ---> A.callSuper ---> B.init ---> this.callSuper()
+            在调用的时候可能会发生一种情况是最后的this指向A
+
+            错误（死循环，栈溢出）：
+            子类.init ---> 子类.callSuper ---> 子类init ---> 子类.callSuper
+
+            正确:
+            子类.init ---> 子类.callSuper ---> 父类init ---> 父类.callSuper
+
+            这样就会出现死循环
+            不信的话，你可以直接使用
+            SubClass.prototype.callSuper = _super.init
+
+            下面的解决方法其实是，
+            它能保证最后的this确实指向的是B
+
+            首先保证父类_super.init使用的上下文是子类的，
+            _super.init.apply(this, arguments);
+            再保证父类_super.init中调用的callSuper（如果存在的话）
+            if (_super.callSuper) {
+                SubClass.prototype.callSuper = _super.callSuper;    
+            }
+            是父类的callSuper，而不是子类的callSuper
+
+            但这样的话子类的callSuper不是被覆盖了？
+            没关系，最后还原就是了
+            SubClass.prototype.callSuper = tmp;
+
+
+                
+        */
         SubClass.prototype.callSuper = function () {
             var tmp = SubClass.prototype.callSuper;
             if (_super.callSuper) {
