@@ -92,6 +92,8 @@ function extend(extension) {
         object[property] = extension[property];
       }
     }
+
+    return object;
 }
 
 var Rectangle = {
@@ -107,11 +109,11 @@ var Rectangle = {
     }
 };
 
-var rect = Rectangle.create(5, 9);
-rect.area();
-
 var Square = Rectangle.extend({
-    create: function () {
-         return rectangle.create.call(this, side, side);
+    create: function (side) {
+         return Rectangle.create.call(this, side, side);
     }
 })
+
+var s = Square.create(5);
+s.area();
