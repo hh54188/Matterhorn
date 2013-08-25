@@ -31,6 +31,7 @@ Man.prototype.constructor = Man;
 
 var man = new Man("Lee", 22);
 console.log(man);
+man.say();
 
 /*
     缺陷：
