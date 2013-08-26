@@ -21,6 +21,18 @@ Class.extend = function extend(props) {
     var prototype = new this();
     var _super = this.prototype;
 
+    if (_super.init) {
+        prototype.__callSuper = function () {
+            var tmp = prototype.__callSuper;
+            if (_super.__callSuper) {
+                prototype.__callSuper = _super.__callSuper;
+            }
+
+            _super.init.apply(this, arguments);
+            prototype.__callSuper = tmp;
+        }
+    }
+
     for (var name in props) {
 
         if (typeof props[name] == "function" && typeof _super[name] == "function") {
@@ -51,11 +63,19 @@ Class.extend = function extend(props) {
     Class.prototype = prototype;
     Class.prototype.constructor = Class;
 
-    // 尽量避免使用arguments.callee 详见MDN
     Class.extend =  extend;
     Class.create = function () {
+
         var instance = new this();
-        instance.init();
+
+        if (arguments.callSuper && instance.__callSuper) {
+            instance.__callSuper();
+        }
+
+        if (instance.init) {
+            instance.init.apply(instance. arguments);    
+        }
+        
         return instance;
     }
 
